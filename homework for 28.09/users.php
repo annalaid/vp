@@ -18,30 +18,44 @@ $firstnameerror = "";
 if(isset($_POST["usersubmit"])){
   if(empty($_POST["firstnameinput"])){
     $firstnameerror .= "Eesnimi sisestamata!";
-      //if(empty($_POST["firstnameinput"]));
-        //$firstname .= $_POST["firstnameinput"];
+      if(empty($_POST["firstnameinput"]));{
+        $lastname = $_POST["lastnameinput"];
+        $gender = $_POST["genderinput"];
+        $email = $_POST["emailinput"];
+      }
   }
 }
 $lastnameerror = "";
 if(isset($_POST["usersubmit"])){
   if(empty($_POST["lastnameinput"])){
     $lastnameerror .= "Perekonnanimi sisestamata!";
-      //if(empty($_POST["lastnameinput"]));
-        //$lastname .= $_POST["lastnameinput"];
+      if(empty($_POST["lastnameinput"]));{
+        $firstname = $_POST["firstnameinput"];
+        $gender = $_POST["genderinput"];
+        $email = $_POST["emailinput"];
+      }
   }
 }
 $gendererror = "";
 if(isset($_POST["usersubmit"])){
   if(empty($_POST["genderinput"])){
     $gendererror .= "Sugu sisestamata!";
+      if(empty($_POST["genderinput"])){
+        $firstname = $_POST["firstnameinput"];
+        $email = $_POST["emailinput"];
+        $lastname = $_POST["lastnameinput"];
+      }
   }
 }
 $emailerror = "";
 if(isset($_POST["usersubmit"])){
   if(empty($_POST["emailinput"])){
     $emailerror .= "E-mail sisestamata!";
-      //if(empty($_POST["emailinput"]));
-        //$email .= $_POST["emailinput"];
+      if(empty($_POST["emailinput"]));{
+        $firstname = $_POST["firstnameinput"];
+        $lastname = $_POST["lastnameinput"];
+        $gender = $_POST["genderinput"];
+      }
   }
 }
 $passworderror = "";
