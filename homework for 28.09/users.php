@@ -62,16 +62,22 @@ $passworderror = "";
 if(isset($_POST["usersubmit"])){
   if(empty($_POST["passwordinput"])){
     $passworderror .= "Parool sisestamata!";
-    if(strlen($_POST["passwordinput"]) < 8);
+    if(strlen($_POST["passwordinput"]) < 8);{
       $passworderror .= " Parool liiga lühike!";
+    }
   }
 }
 $passwordsecondaryerror = "";
 if(isset($_POST["usersubmit"])){
   if(empty($_POST["passwordsecondaryinput"])){
     $passwordsecondaryerror .= "Teine parool sisestamata!";
+
   }
 }
+//$passwordmatch = "";
+//if ($passwordinput != $passwordsecondaryinput){
+  //$passwordmatch .= "Paroolid ei klapi!";
+//}
 
 
 ?>
