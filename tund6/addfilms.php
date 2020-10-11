@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 //kui pole sisse sisseloginud
 if(!isset($_SESSION["userid"])){
 	//jõuga sisselogimise lehele

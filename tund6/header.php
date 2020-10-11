@@ -5,18 +5,18 @@
   <title>Veebileht</title>
   <style>
   <?php
-    echo "body { \n";
-      if(isset($_SESSION["bgcolor"])){
-        echo "backround-color: " .$_SESSION["bgcolor"] ."; \n";
-      } else {
-        echo "background-color: #FFFFFF; \n";
-      }
-      if(isset($_SESSION["txtcolor"])){
-        echo "color: " .$_SESSION["txtcolor"] ."; \n";
-      } else {
-        echo "color: #000000; \n";
-      }
-      echo "} \n";
+  echo "body { \n";
+    if(isset($_SESSION["bgcolor"])){
+      echo "background-color: " .$_SESSION["bgcolor"] ."; \n";
+    } else {
+      echo "background-color: #FFFFFF; \n";
+    }
+    if(isset($_SESSION["txtcolor"])){
+      echo "color: " .$_SESSION["txtcolor"] ."\n";
+    } else {
+      echo "color: #000000; \n";
+    }
+    echo "} \n";
   ?>
   </style>
 

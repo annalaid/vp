@@ -1,8 +1,8 @@
 <?php
-require("header.php");
 require("../../../config.php");
 require("fnc_common.php");
 require("fnc_user.php");
+
 session_start();
 //$username = "Anna-Stiina Laidna";
 //$fulltimenow = date("d.m.Y H:i:s");
@@ -140,6 +140,7 @@ if(isset($_POST["userdatasubmit"])){
 	}
 }
 
+require("header.php");
 
 
 

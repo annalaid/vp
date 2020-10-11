@@ -1,4 +1,5 @@
 <?php
+require("header.php");
 session_start();
 //kui pole sisse sisseloginud
 if(!isset($_SESSION["userid"])){
@@ -19,7 +20,7 @@ require("fnc_user.php");
 
 //kui klikiti nuppu, siis kontrollime ja salvestame
 $notice = "";
-$description = "";
+$description = readdescription();
 //algatuseks valin vaikimisvärvid
 //$_SESSION["txtcolor"] = "#000000";
 //$_SESSION["bgcolor"] = "#FFFFFF";
@@ -32,7 +33,7 @@ if(isset($_POST["profilesubmit"])){
 
 }
 
-require("header.php");
+
 
 ?>
 

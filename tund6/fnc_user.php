@@ -47,9 +47,9 @@ function signin($email, $password){
         $_SESSION["userfirstname"] = $firstnamefromdb;
         $_SESSION["userlastname"] = $lastnamefromdb;
         $stmt->close();
-        $stmt = $conn->prepare("SELECT bgcolor, txtcolor FROM vpuserprofiles WHERE userid = ?");
+        $stmt = $conn->prepare("SELECT txtcolor, bgcolor FROM vpuserprofiles WHERE userid = ?");
  					$stmt->bind_param("i", $_SESSION["userid"]);
- 					$stmt->bind_result($bgcolorfromdb, $txtcolorfromdb);
+ 					$stmt->bind_result($txtcolorfromdb, $bgcolorfromdb);
  					$stmt->execute();
  					if($stmt->fetch()){
  						$_SESSION["txtcolor"] = $txtcolorfromdb;
@@ -108,7 +108,7 @@ function storeuserprofile($description, $bgcolor, $txtcolor){
 }
 
 function readdescription(){
- 		$notice = null;
+ 		$notice = "";
  		$conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
  		//vaatame, kas on profiil olemas
  		$stmt = $conn->prepare("SELECT description FROM vpuserprofiles WHERE userid = ?");
