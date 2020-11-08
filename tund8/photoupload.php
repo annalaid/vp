@@ -1,18 +1,12 @@
 <?php
 require("session.php");
 require("../../../config.php");
+require("picinfo.php");
 
 $notice = "";
 $filetype = "";
 $error = "";
-$filenameprefix = "vp_";
 $filename = "";
-$origphotodir = "../photoupload_orig/";
-$normalphotodir = "../photoupload_normal/";
-$maxphotowidth = 600;
-$maxphotoheight = 400;
-
-
 
 	if(isset($_POST["photosubmit"])){
     //var_dump($_POST);
@@ -34,7 +28,7 @@ $maxphotoheight = 400;
 		}
 
 		 //pildi suurus
-		 if($_FILES["photoinput"]["size"] > 1048576){
+		 if($_FILES["photoinput"]["size"] > $picsizelimit){
 			 $error .= "Fail ületab lubatud suuruse!";
 		 }
 
@@ -79,30 +73,29 @@ $maxphotoheight = 400;
 			 imagecopyresampled($mynewimage, $mytempimage, 0, 0, 0, 0, $newphotow, $newphotoh, $imagew, $imageh);
 			 //salvestame pildifaili
 			 if($filetype == "jpg"){
-				 if(imagejpeg($mynewimage, $normalphotodir .$filename, 90)){
-					 $notice = "Vähendatud pildi salvestamine õnnestus!";
-				 } else {
-				 	$notice = "Vähendatud pildi salvestamisel tekkis tõrge!";
-				 }
+			 	if(imagejpeg($mynewimage, $normalphotodir .$filename, 90)){
+			 		$notice = "Vähendatud pildi salvestamine õnnestus!";
+			 	} else {
+			 	 $notice = "Vähendatud pildi salvestamisel tekkis tõrge!";
+			 	}
 			 }
 			 if($filetype == "png"){
-				 if(imagepng($mynewimage, $normalphotodir .$filename, 6)){
-					 $notice = "Vähendatud pildi salvestamine õnnestus!";
-				 } else {
-				 	$notice = "Vähendatud pildi salvestamisel tekkis tõrge!";
-				 }
+			 	if(imagepng($mynewimage, $normalphotodir .$filename, 6)){
+			 		$notice = "Vähendatud pildi salvestamine õnnestus!";
+			 	} else {
+			 	 $notice = "Vähendatud pildi salvestamisel tekkis tõrge!";
+			 	}
 			 }
 			 if($filetype == "gif"){
-				 if(imagegif($mynewimage, $normalphotodir .$filename)){
-					 $notice = "Vähendatud pildi salvestamine õnnestus!";
-				 } else {
-				 	$notice = "Vähendatud pildi salvestamisel tekkis tõrge!";
-				 }
+			 	if(imagegif($mynewimage, $normalphotodir .$filename)){
+			 		$notice = "Vähendatud pildi salvestamine õnnestus!";
+			 	} else {
+			 	 $notice = "Vähendatud pildi salvestamisel tekkis tõrge!";
+			 	}
 			 }
-
-			 //tühistan pildipbjectid
-			 imagedestroy($mytempimage);
-			 imagedestroy($mynewimage);
+			 //tühistan ajutised pildipbjektid
+			 //imagedestroy($mytempimage);
+			 //imagedestroy($mynewimage);
 
 			 if(move_uploaded_file($_FILES["photoinput"]["tmp_name"], $origphotodir .$filename)){
 				 $notice .= " Originaalfaili üleslaadimine õnnestus!";
@@ -110,6 +103,7 @@ $maxphotoheight = 400;
 			 	$notice .= " Originaalfaili üleslaadimisel tekkis tõrge!";
 			 }
 	}
+
 }
 
   require("header.php");
