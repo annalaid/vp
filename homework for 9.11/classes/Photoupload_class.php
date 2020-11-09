@@ -122,4 +122,35 @@
 			return $notice;
 		}
 
+		public function isPhotoFile($photoFileTypes) {
+			$fileInfo = getimagesize($this->photoinput["tmp_name"]);
+			if(in_array($fileInfo["mime"], $photoFileTypes)) {
+				$this->photofiletype = substr($fileInfo["mime"], 6);
+				echo $this->photofiletype;
+				$this->createImageFromFile();
+				return 1;
+			} else {
+				$this->photofiletype = null;
+			}
+		}
+
+		public function isAllowedSize($filesizelimit) {
+			if($this->photoinput["size"] > $filesizelimit) {
+				return 1;
+			} else {
+				return null;
+			}
+		}
+
+		public function createnewFileName($filenameprefix, $filenamesuffix) {
+			$timestamp = microtime(1) * 10000;
+			if(!empty($filenamesuffix)) {
+				$notice = $this->filename = $filenameprefix .$timestamp ."_" .$filenamesuffix ."." .$this->photofiletype;
+			} else {
+				$notice = $this->filename = $filenameprefix .$timestamp ."." .$this->photofiletype;
+			}
+			$this->createImageFromFile();
+			return $notice;
+		}
+
 	}//class lõppeb

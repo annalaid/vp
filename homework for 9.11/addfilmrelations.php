@@ -1,7 +1,7 @@
 <?php
 require("session.php");
 require("../../../config.php");
-require("fnc_filmrelations.php");
+require("fnc/fnc_filmrelations.php");
 
 
   $genrenotice = "";

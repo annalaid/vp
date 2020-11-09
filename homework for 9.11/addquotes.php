@@ -2,7 +2,7 @@
 require("session.php");
 require("header.php");
 require("../../../config.php");
-require("fnc_film.php");
+require("fnc/fnc_film.php");
 
 $notice = "";
 $selectedrole = "";

@@ -4,8 +4,8 @@ session_start();
 require("header.php");
 
 require("../../../config.php");
-require("fnc_common.php");
-require("fnc_user.php");
+require("fnc/fnc_common.php");
+require("fnc/fnc_user.php");
 
 $monthNamesET = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
 

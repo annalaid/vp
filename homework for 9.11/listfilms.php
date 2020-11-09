@@ -4,7 +4,7 @@ require("session.php");
 //loeme andmebaasi login info muutujad
 require("../../../config.php");
 //kui kasutaja on vormis andmeid saatnud, siis salvestame andmebaasi
-require("fnc_film.php");
+require("fnc/fnc_film.php");
 
 //$username = "Anna-Stiina Laidna";
 require("header.php");
