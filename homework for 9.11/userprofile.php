@@ -6,7 +6,7 @@ require("header.php");
 
 //loeme andmebaasi login info muutujad
 require("../../../config.php");
-require("fnc/fnc_user.php");
+require("fnc_user.php");
 
 //kui klikiti nuppu, siis kontrollime ja salvestame
 $notice = "";

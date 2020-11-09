@@ -3,8 +3,8 @@ require("session.php");
 require("../../../config.php");
 require("../../../config_photo.php");
 require("classes/Photoupload_class.php");
-require("fnc/fnc_photo.php");
-require("fnc/fnc_common.php");
+require("fnc_photo.php");
+require("fnc_common.php");
 
 $notice = "";
 $error = null;

@@ -16,7 +16,7 @@ if(isset($_GET["logout"])){
 //loeme andmebaasi login info muutujad
 require("../../../config.php");
 //kui kasutaja on vormis andmeid saatnud, siis salvestame andmebaasi
-require("fnc/fnc_film.php");
+require("fnc_film.php");
 //kui klikiti nuppu, siis kontrollime ja salvestame
 $inputerror = "";
 if(isset($_POST["filmsubmit"])){

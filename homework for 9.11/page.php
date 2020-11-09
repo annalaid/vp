@@ -1,7 +1,7 @@
 <?php
 require("../../../config.php");
-require("fnc/fnc_common.php");
-require("fnc/fnc_user.php");
+require("fnc_common.php");
+require("fnc_user.php");
 
 session_start();
 //$username = "Anna-Stiina Laidna";
