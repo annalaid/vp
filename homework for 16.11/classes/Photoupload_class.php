@@ -4,7 +4,6 @@
 		private $photofiletype;
 		private $mytempimage;
 		private $mynewimage;
-		private $filename;
 
 		function __construct($photoinput, $filetype){
 			$this->uploadedphoto = $photoinput;
@@ -15,7 +14,7 @@
 		}//construct lõppeb
 
 		function __destruct(){
-			@imagedestroy($this->mytempimage);
+			imagedestroy($this->mytempimage);
 		}
 
 		private function createImageFromFile(){
@@ -75,7 +74,7 @@
 
 		public function savePhotoFile($target){
 			$notice = null;
-			if($this->photofiletype == "jpg" or $this->photofiletype == "jpeg"){
+			if($this->photofiletype == "jpg"){
 				if(imagejpeg($this->mynewimage, $target, 90)){
 					$notice = 1;
 				} else {
@@ -96,7 +95,7 @@
 					$notice = 0;
 				}
 			}
-			imagedestroy($this->mytempimage);
+			imagedestroy($this->mynewimage);
 			return $notice;
 		}
 
@@ -120,37 +119,6 @@
 			} else {
 				$error .= 0;
 			}
-			return $notice;
-		}
-
-		public function isPhotoFile($photoFileTypes) {
-			$fileInfo = getImagesize($this->uploadedphoto["tmp_name"]);
-			if(in_array($fileInfo["mime"], $photoFileTypes)) {
-				$this->photofiletype = substr($fileInfo["mime"], 6);
-				echo $this->photofiletype;
-				$this->createImageFromFile();
-				return 1;
-			} else {
-				$this->photofiletype = null;
-			}
-		}
-
-		public function isAllowedFileSize($picsizelimit) {
-			if($this->uploadedphoto["size"] > $picsizelimit) {
-				return 1;
-			} else {
-				return null;
-			}
-		}
-
-		public function createnewFileName($filenameprefix, $filenamesuffix) {
-			$timestamp = microtime(1) * 10000;
-			if(!empty($filenamesuffix)) {
-				$notice = $this->filename = $filenameprefix .$timestamp ."_" .$filenamesuffix ."." .$this->photofiletype;
-			} else {
-				$notice = $this->filename = $filenameprefix .$timestamp ."." .$this->photofiletype;
-			}
-			$this->createImageFromFile();
 			return $notice;
 		}
 

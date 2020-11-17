@@ -72,7 +72,7 @@ if(isset($_POST["photosubmit"])){
 		unset($myphoto);
 		}
 	}
-}
+
 
 
   require("header.php");
