@@ -1,0 +1,9 @@
+Sõnade lõputähed
+
+Salvesta uurimiseks vähemalt paarileheküljeline tekst.
+* Trüki välja sõnade viimased tähed
+* Väljasta erinevad sõnalõputähed nende esinemissageduse järjekorras
+* Iga lõputähega sõnade jaoks on eraldi fail, kuhu need tekstist kirjutatakse.
+ Luuakse HTML-leht viidetega tekstis esinenud lõputähtedega failidele, iga viite juures arv, 
+ mitu korda vastava lõputähega sõna esines.
+
